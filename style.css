@@ -1,0 +1,378 @@
+/*共通処理*/
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+    font-family:'YuMincho';
+    color:var(--color1--all);
+}
+:root{
+    --max--waidth:1200px;
+    --color1--all:white;
+    --color2--btm:#424242;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+/* header */
+header{
+    height: 78px;
+    line-height: 78px;
+    width:100%;
+    margin:0 auto;
+}
+#header--wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+#header--wrapper.start{
+    /*アニメーション*/
+    animation: fadeInHeader 2s linear;
+    animation-fill-mode: both;
+}
+/*アニメーション実行-------------------*/
+@keyframes fadeInHeader{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}  
+.icon{
+    width:163.43px;
+    height:50px;
+    margin-left:40px;
+    margin-top:14px;
+}
+.main_menu{
+    display: flex;
+    margin-right:40px;
+}
+.main_menu li{
+    padding-right:30px;
+    font-size: 14px;
+}
+.main_menu li:hover{
+    transition:05.s;
+    opacity: 0.7;
+}
+/* スクロールがされてから表示されるメニュー定義 */
+#fixed-header{
+    height: 78px;
+    line-height: 78px;
+    width:100%;
+    margin:0 auto;
+    background-color:rgba(255,255,255,0.8);
+    position: fixed;
+    top: -78px;  
+    transition: 0.5s;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+}
+#fixed-header.is-show {
+    top: 0;
+}
+.fixed-header--icon{
+    width:163.43px;
+    height:50px;
+    margin-left:40px;
+    margin-top:14px;
+}
+.fixed-header--main_menu{
+    display: flex;
+    margin-right:40px;
+}
+.fixed-header--main_menu li{
+    padding-right:30px;
+    font-size: 14px;
+}
+.fixed-header--main_menu li:hover{
+    transition:05.s;
+    opacity: 0.7;
+}
+.fixed-header--main_menu li a{
+    color: #707070;
+}
+.fixed-header--main_menu li a i{
+    color: #707070;
+}
+
+/* Main */
+#video{
+    width: 100%;
+    height: calc(100vh - 78px);
+}
+#bg-video {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    z-index: -1000;
+    object-fit: cover; /*意味確認*/
+    overflow: hidden;  /*意味確認*/
+}
+
+/*loading start-----------------------------*/
+  .loadingBody{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    top:0;
+    background-color: #FFFFFF;
+    z-index: 10;
+  }
+  .loading-box{
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .loading-box span{
+    width: 10px;
+    height: 10px;
+    background-color: blanchedalmond;
+    border-radius: 50%;
+    display: block;
+    transform: scale(1);
+    transform-origin: center center;
+    animation: circle .2s infinite ease-in-out 0s;
+    visibility: hidden;
+  }
+  h6{
+   width: 100%;
+    margin: 0px;
+    font-family: 'Lato';
+    font-size: 12px;
+    letter-spacing: 10px;
+    margin-top: 15px;
+    color: #fff;
+    text-align: center;
+    font-weight: lighter;
+    padding-left: 10px;
+  }
+  @keyframes circle{
+    0%, 100%{
+      transform: scale(1);
+      box-shadow: 0px 0px 5px 5px #fff;
+      visibility: visible;
+    }
+    50%{
+      transform: scale(.25);
+      box-shadow: none;
+    }
+  }
+  .loading-box span:nth-child(1){
+    animation: circle 1s infinite ease-in-out .2s;
+  }
+  .loading-box span:nth-child(2){
+    animation: circle 1s infinite ease-in-out .4s;
+  }
+  .loading-box span:nth-child(3){
+    animation: circle 1s infinite ease-in-out .6s;
+  }
+  .loading-box span:nth-child(4){
+    animation: circle 1s infinite ease-in-out .8s;
+  }
+  .loading-box span:nth-child(5){
+    animation: circle 1s infinite ease-in-out 1s;
+  }
+/*loading end------------------------------*/
+
+/*動画上のアイコンとメッセージ*/
+#center_icon{
+    width:250px;
+    height:76.48px;
+    margin: 0 auto;
+    position: relative;
+    top:35%;
+    opacity: 0;
+}
+#center_icon.start{
+    /*アニメーション*/
+    animation: fadeIn 2s linear;
+    animation-fill-mode: both;
+}
+.icon2{
+    width:250px;
+    height:76.48px;
+}
+#center_message{
+    width:250px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top:35%;
+    opacity: 0;
+}
+#center_message.start{
+    /*アニメーション*/
+    animation: fadeIn 2s linear;
+    animation-fill-mode: both;   
+}
+#center_message p{
+    font-size: 18px;
+}
+/*アニメーション実行-------------------*/
+ @keyframes fadeIn{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 0.7;
+	}
+}  
+
+/*コンセプトエリア*/
+.concept{
+    width:100%;
+    height:402px;
+    text-align: center;
+    margin-top:100px;
+}
+.concept p{
+    font-size: 14px;
+    color:black;
+    letter-spacing: 0.5em;
+}
+.btm{
+    display: inline-block;
+    width:250px;
+    height:60px;
+    line-height: 60px;
+    background-color: var(--color2--btm);
+    margin-top:50px;    
+    letter-spacing: 0.5em;
+    font-family: 'Times New Roman';
+}
+.btm:hover{
+    transition:0.5s;
+    opacity: 0.7;
+}
+/*ギャラリーのエリア*/
+.gallery{
+    margin-top:100px;
+    width:100%;
+    text-align: center;
+}
+.galleryImg{   
+    width:100%;
+    height:519px;
+    text-align: center;
+    background-image: url("Gallery_07 - 編集済み.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 0;
+    background-attachment: fixed;
+}
+.galleryMessage{
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.galleryMessage p{
+    letter-spacing: 0.5em;
+    text-shadow: 1px 1px 0 #000000;
+    font-size: 20px;
+}
+.service{
+    margin-top:50px;
+    font-size: 32px;
+    font-weight: normal;
+    color: black;
+}
+.galleryService{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.galleryService li{
+    margin:0 45.5px;
+    margin-bottom:50px;
+}
+.galleryService li:hover{
+    transition:0.5s;
+    opacity:0.7;
+}
+.galleryService img{
+    width:400px;
+    height:250px;
+}
+.galleryService p{
+    color: black;
+}
+
+/*コンタクト・コストのエリア*/
+.contact{
+    margin-top:100px;
+    width:100%;
+    height:823px;
+    text-align: center;
+}
+.contactImg{   
+    width:100%;
+    height:519px;
+    text-align: center;
+    background-image: url("Gallery_17.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 0;
+    background-attachment: fixed;
+}
+.contactMessage{
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.contactMessage p{
+    letter-spacing: 0.5em;
+    text-shadow: 1px 1px 0 #000000;
+    font-size: 20px;
+}
+.contactPrice{
+    margin-top:50px;
+    font-size: 32px;
+    font-weight: normal;
+    color: black;
+}
+.contactNote{
+    font-size: 16px;
+    color: black;
+}
+
+/*Footer*/
+footer{
+    margin-top: 150px;
+    width:100%;
+    height: 270px;
+    background-color: #424242;
+    text-align:center ;
+}
+.footerIcon{
+    margin-top: 50px;
+    width:250px;
+    height:76.48px;
+}
+.SNS a{
+    display: inline-block;
+    padding:15px 15px;
+}
+.SNS a:hover{
+    transition:05.s;
+    opacity: 0.7;
+}
